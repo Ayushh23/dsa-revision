@@ -1,4 +1,4 @@
-package practiceQuestions.TwoPointer;
+package practiceQuestions.TwoPointerandSlidingWindow;
 
 import java.util.Arrays;
 import java.util.HashMap;
