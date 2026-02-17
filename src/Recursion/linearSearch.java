@@ -1,0 +1,18 @@
+package Recursion;
+
+public class linearSearch {
+    public static void main(String[] args) {
+        int []arr={1,2,3,48,20,11};
+        System.out.println(search(arr,48,0));
+    }
+
+    static int search(int []arr,int target,int i){
+        if(i==arr.length)return -1;
+
+       if (arr[i]==target)return i;
+
+       else {
+           return search(arr,target,i+1);
+       }
+    }
+}
