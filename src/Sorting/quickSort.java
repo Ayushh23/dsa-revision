@@ -4,41 +4,38 @@ import java.util.Arrays;
 
 public class quickSort {
     public static void main(String[] args) {
-        int []arr={1,3,2,9,6,5};
-        quick(arr);
+        int []arr={5,4,3,2,1};
+        sort(arr,0,arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
 
 
-    static void quick(int[] arr){
-        helper(arr,0,arr.length-1);
-    }
+    static void sort(int[]arr,int low,int high) {
 
-    static void helper(int[]arr,int low,int hi){
-        if (low>=hi)return;
-        int s=low;
-        int e=hi;
-        int mid=s+(e-s)/2;
-        int pivot=arr[mid];
-        while (s<=e){
-            while (arr[s]<pivot){
-                s++;
-            }
-            while (arr[e]>pivot){
-                e--;
-            }
-            if (s<=e){
-                int temp =arr[s];
-                arr[s]=arr[e];
-                arr[e]=temp;
-                s++;
-                e--;
-            }
+        if (low>=high)return;
+        int start=low;
+        int end=high;
 
+        int mid = start + (end - start) / 2;
+        int p=arr[mid];
+        while (start<=end) {
+            while (arr[start] < p) {
+
+                start++;
+            }
+            while (arr[end]>p) {
+
+                end--;
+            }
+            if (start<=end){
+                int temp=arr[start];
+                arr[start]=arr[end];
+                arr[end]=temp;
+                start++;
+                end--;
+            }
         }
-        helper(arr,low,e);
-        helper(arr,s,hi);
-
-
+        sort(arr,start,high);
+        sort(arr,low,end);
     }
 }
